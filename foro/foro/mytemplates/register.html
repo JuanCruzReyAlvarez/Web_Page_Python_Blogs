@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% include "navbar.html" %}
+{%block content%}
+<h1 class="title is-1">Registrarse</h1>
+
+    <form class="box"  method="POST" action="register/">
+        {% csrf_token %}
+        <div class="{{errorclass}}" role="alert">{{error}}</div>
+        <div class="field">         
+            <img class="rounded-circle"
+            src="https://img.freepik.com/vector-premium/hombre-sostiene-globo-su-mano-lo-senala-dedo-concepto-educacion-maestro-conquista-mundial-ecologia-ilustracion-plana-vectorial_531064-4168.jpg?w=2000"
+            alt="" width="72" height="72">
+
+            <label class="label mt-4">Nombre de usuario</label>
+            <div class="control">
+                <input class="input" name="username" type="text" placeholder="Ingrese su nombre de usuario">
+            </div>
+            
+            <label class="label mt-4">Elegir su rol</label>
+            <div class="select">
+                <select id="rol" name="rol">
+                    <option value="">Seleccionar</option>
+                    <option value="escritor">Escritor</option>
+                    <option value="comentador">Comentador</option>
+                </select>
+            </div>
+
+            <label for="inputPassword" class="label mt-4">Password</label>
+            <div class="control">
+                <input type="password" id="inputPassword" class="input" placeholder="Password" required="" name="password1">
+            </div>
+
+            <label for="inputPassword" class="label mt-4">Confirm Password</label>
+            <div class="control">
+                <input type="password" id="inputPassword" class="input" placeholder="Confirm Password" required="" name="password2">
+            </div>
+                <div class="control mt-4">
+                    <input type="submit" class="button is-link"/>
+                </div>
+        </div>
+    </form>  
+
+{% endblock %}
